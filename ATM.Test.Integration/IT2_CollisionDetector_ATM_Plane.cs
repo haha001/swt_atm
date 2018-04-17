@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using NSubstitute;
@@ -75,10 +76,6 @@ namespace Test.Integration
             // Insert values equal to _plane_2
             _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_2);
 
-
-
-            //_collisionDetector.DetectCollision(_atm._planes);
-            //Assert.That(_atm._planes[0].Separation);
             Assert.That(raised);
         }
 
@@ -97,11 +94,80 @@ namespace Test.Integration
             // Insert values equal to _plane_3
             _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_3);
 
-
-            //Assert.That(_atm._planes.Count, Is.EqualTo(3));
-            //Assert.That(raised, Is.EqualTo(3));
             Assert.That(raised, Is.EqualTo(3));
         }
 
+        [Test]
+        public void VerifyCollisions_TwoPlanesColliding_OneRemoved_EventRaised()
+        {
+            RawTransponderDataEventArgs _eventArgs_4 = 
+                new RawTransponderDataEventArgs(new List<string>()
+                { "A1;30045;12933;14003;20151006213456789" });
+
+            bool raised = false;
+
+            _collisionDetector.NoSeperationEvent += (sender, args) => raised = true;
+
+            // Insert values equal to _plane_1
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_1);
+            // Insert values equal to _plane_2
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_2);
+            
+
+            // Change coords of _plane_1
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_4);
+
+            Assert.That(raised);
+        }
+
+        [Test]
+        public void VerifyCollisions_ThreePlanesColliding_OneRemoved_EventRaised()
+        {
+            RawTransponderDataEventArgs _eventArgs_4 =
+                new RawTransponderDataEventArgs(new List<string>()
+                    { "A1;30045;12933;14003;20151006213456789" });
+
+            bool raised = false;
+
+            _collisionDetector.NoSeperationEvent += (sender, args) => raised = true;
+
+            // Insert values equal to _plane_1
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_1);
+            // Insert values equal to _plane_2
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_2);
+            // Insert values equal to _plane_3
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_3);
+
+            // Change coords of _plane_1
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_4);
+
+            Assert.That(raised);
+        }
+
+        [Test]
+        public void VerifyCollisions_TwoPlanesColliding_ZeroRemoved_EventNotRaised()
+        {
+            bool raised = true;
+
+            RawTransponderDataEventArgs _eventArgs_4 =
+                new RawTransponderDataEventArgs(new List<string>()
+                    { "A1;39045;12933;14003;20151006213456789" });
+            RawTransponderDataEventArgs _eventArgs_5 =
+                new RawTransponderDataEventArgs(new List<string>()
+                    { "A2;39045;12932;14003;20151006213456789" });
+
+            _collisionDetector.SeparationEvent += (sender, args) => raised = !true;
+
+            // Insert values equal to _plane_1
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_1);
+            // Insert values equal to _plane_2
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_2);
+
+            // Update both planes, still colliding
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_4);
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_5);
+
+            Assert.That(raised == false);
+        }
     }
 }
