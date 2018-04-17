@@ -13,7 +13,7 @@ namespace ATM_ns
     {
         static void Main(string[] args)
         {
-            var atm = new ATM();
+            var atm = new TransponderLib.ATM();
             while (Console.Read() != 'q') ;
         }
     }
