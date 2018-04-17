@@ -71,6 +71,13 @@ namespace TestUnit
         }
 
         [Test]
+        public void HandleData_DataParser_ThrowExection_True()
+        {
+            
+            Assert.DoesNotThrow(() => _atm.HandleData("A4;29045;129321500020151006213456900"));
+        }
+
+        [Test]
 		[Ignore ("Not done")]
         public void wat()
         {
