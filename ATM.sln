@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransponderLib", "Transpond
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnit", "TestUnit\TestUnit.csproj", "{16ECE5FA-6B36-4C0E-B158-B26ADB7F41B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Test.Integration", "ATM.Test.Integration\ATM.Test.Integration.csproj", "{A763F4E3-DA5B-4FCF-BCE4-339188942C11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{16ECE5FA-6B36-4C0E-B158-B26ADB7F41B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16ECE5FA-6B36-4C0E-B158-B26ADB7F41B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16ECE5FA-6B36-4C0E-B158-B26ADB7F41B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A763F4E3-DA5B-4FCF-BCE4-339188942C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A763F4E3-DA5B-4FCF-BCE4-339188942C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A763F4E3-DA5B-4FCF-BCE4-339188942C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A763F4E3-DA5B-4FCF-BCE4-339188942C11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

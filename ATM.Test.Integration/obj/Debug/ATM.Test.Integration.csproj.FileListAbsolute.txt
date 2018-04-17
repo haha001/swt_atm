@@ -1,0 +1,11 @@
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\obj\Debug\ATM.Test.Integration.csprojResolveAssemblyReference.cache
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\obj\Debug\ATM.Test.Integration.csproj.CoreCompileInputs.cache
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\ATM.Test.Integration.dll.config
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\ATM.Test.Integration.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\ATM.Test.Integration.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\nunit.framework.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\nunit.framework.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\nunit.framework.xml
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\obj\Debug\ATM.Test.Integration.csproj.CopyComplete
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\obj\Debug\ATM.Test.Integration.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\obj\Debug\ATM.Test.Integration.pdb

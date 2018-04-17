@@ -55,7 +55,6 @@ namespace TransponderLib
 				{
 					NoSeperationEvent?.Invoke(this, new CollisionEventArgs(collision.Item1, collision.Item2));
 					Collisions.Remove(collision);
-
 				}
 			}
 		}
