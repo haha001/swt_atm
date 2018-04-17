@@ -52,7 +52,14 @@ namespace TestUnit
             Assert.That(_atm._planes[0].Separation && _atm._planes[1].Separation);
         }
 
-
+        [Test]
+        public void HandleData_PlaneOutsideAirspace_ExpectedResult_True()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), 
+            new RawTransponderDataEventArgs(new List<string>() { "A3;100000;12932;14000;20151006213456900" ,
+                "A4;29045;12932;15000;20151006213456900"}));
+            Assert.That(_atm._planes.Exists(p => p.Tag == "A3"), Is.False);
+        }
 
         [Test]
 		[Ignore ("Not done")]
