@@ -34,7 +34,7 @@ namespace TestUnit
 
             var date = DateTime.Parse("2018-11-22 01:13:37.323");
 
-            //_uut.UpdatePlane(plane, 23800, 21000, 11500, date);
+            _uut.UpdatePlane(plane, 23800, 21000, 11500, date);
 
             Assert.That(plane.XCoord, Is.EqualTo(23800));
         }
