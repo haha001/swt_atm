@@ -31,10 +31,6 @@ namespace TransponderLib
 			{
 				for (int j = i + 1; j < planes.Count; ++j)
 				{
-					if (planes[j].Speed == 0)
-						break; //Break in case of new plane
-
-
 					int differenceInAltitude = planes[j].Altitude - planes[i].Altitude;
 					if (differenceInAltitude < 300 && differenceInAltitude > -300)
 					{

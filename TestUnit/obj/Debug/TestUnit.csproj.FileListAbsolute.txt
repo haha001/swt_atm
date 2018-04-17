@@ -212,11 +212,8 @@ C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.X
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.Xml.XmlSerializer.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.Xml.XPath.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.Xml.XPath.XDocument.dll
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\ATM.exe
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\TransponderLib.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\TransponderReceiver.dll
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\ATM.pdb
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\ATM.exe.config
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\TransponderLib.pdb
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\nunit.framework.pdb
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\nunit.framework.xml
