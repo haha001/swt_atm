@@ -57,8 +57,9 @@ namespace Test.Integration
             // Insert values equal to _plane_1
             _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_1);
 
+            Raise.EventWith(new object(), _eventArgs_1);
             _collisionDetector.SeparationEvent += (sender, args) => raised = true;
-
+            
             _collisionDetector.DetectCollision(_atm._planes);
 
             Assert.That(raised == false);
