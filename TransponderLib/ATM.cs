@@ -5,6 +5,7 @@ using System.Text;
 using TransponderReceiver;
 
 [assembly: InternalsVisibleTo("TestUnit")]
+[assembly: InternalsVisibleTo("ATM.Test.Integration")]
 
 namespace TransponderLib
 {
