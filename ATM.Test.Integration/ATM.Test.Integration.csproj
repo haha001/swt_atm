@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IT1_ATMPlaneParser.cs" />
+    <Compile Include="IT2_CollisionDetector_ATM_Plane.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

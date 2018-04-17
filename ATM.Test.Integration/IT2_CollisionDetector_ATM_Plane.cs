@@ -78,8 +78,8 @@ namespace Test.Integration
 
 
             //_collisionDetector.DetectCollision(_atm._planes);
-            Assert.That(_atm._planes[0].Separation);
-            //Assert.That(raised);
+            //Assert.That(_atm._planes[0].Separation);
+            Assert.That(raised);
         }
 
         [Test]
@@ -88,27 +88,19 @@ namespace Test.Integration
             int raised = 0;
             bool rased = false;
 
-
+            _collisionDetector.SeparationEvent += (sender, args) => raised += 1;
 
             // Insert values equal to _plane_1
             _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_1);
             // Insert values equal to _plane_2
             _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_2);
-
-            _collisionDetector.SeparationEvent += (sender, args) => rased = true;
-
-            _collisionDetector.DetectCollision(_atm._planes);
-
-            Assert.That(rased);
-            //// Insert values equal to _plane_3
-            //_receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_3);
-
-            //_collisionDetector.DetectCollision(_atm._planes);
+            // Insert values equal to _plane_3
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs_3);
 
 
-            ////Assert.That(_atm._planes.Count, Is.EqualTo(3));
-            ////Assert.That(raised, Is.EqualTo(3));
-            //Assert.That(rased);
+            //Assert.That(_atm._planes.Count, Is.EqualTo(3));
+            //Assert.That(raised, Is.EqualTo(3));
+            Assert.That(raised, Is.EqualTo(3));
         }
 
     }
