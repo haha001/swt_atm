@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Reference Include="TransponderReceiver">
-      <HintPath>C:\Users\jonas\source\repos\ATM\ATM\TransponderReceiver.dll</HintPath>
+      <HintPath>TransponderReceiver.dll</HintPath>
     </Reference>
   </ItemGroup>
 

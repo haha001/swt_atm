@@ -16,3 +16,5 @@ C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TransponderLib\obj\Debug\ne
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.AssemblyInfo.cs
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TransponderLib\bin\Debug\netstandard2.0\TransponderReceiver.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.csproj.CopyComplete

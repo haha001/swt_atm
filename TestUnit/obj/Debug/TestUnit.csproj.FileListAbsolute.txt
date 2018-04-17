@@ -213,10 +213,6 @@ C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.X
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.Xml.XPath.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\ATM.exe
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\Castle.Core.dll
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\NSubstitute.dll
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\nunit.framework.dll
-C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\TransponderLib.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\TransponderReceiver.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\ATM.pdb
