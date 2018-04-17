@@ -8,4 +8,10 @@
     <PackageReference Include="NUnit" Version="3.10.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="TransponderReceiver">
+      <HintPath>C:\Users\jonas\source\repos\ATM\ATM\TransponderReceiver.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -9,6 +9,7 @@ namespace TransponderLib
     {
         private readonly ITransponderReceiver _receiver;
         private ITransponderDataParser _dataParser;
+        private IOutput _output;
         private CollisionDetector _detector;
 
 
@@ -22,6 +23,7 @@ namespace TransponderLib
             _dataParser = new TransponderDataParser();
             _receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             _receiver.TransponderDataReady += ReceiverOnTransponderDataReady;
+            _output = new ConsoleOutputter();
 
             UpdateScreen();
         }
@@ -42,21 +44,19 @@ namespace TransponderLib
 
         internal void UpdateScreen()
         {
-            Console.SetCursorPosition(0,0);
-            Console.WriteLine("{0,-2}Plane Tag {0,-2} | {0,-2}Plane Speed {0,-2} | {0,-2}Plane Course {0,-2} | {0,-2}Plane Separation {0,-2} | {0,-2}Plane Updated {0,-2} | {0,-2}Planes total: {1,-2:D} {0,-2}",
-                string.Empty, _planes.Count);
+            _output.Reset();
+            _output.Print(String.Format("{0,-2}Plane Tag {0,-2} | {0,-2}Plane Speed {0,-2} | {0,-2}Plane Course {0,-2} | {0,-2}Plane Separation {0,-2} | {0,-2}Plane Updated {0,-2} | {0,-2}Planes total: {1,-2:D} {0,-2}",
+                string.Empty, _planes.Count));
 
 
             foreach (var plane in _planes)
             {
-                if(plane.Separation) Console.WriteLine("{0,-15}WARNING: SEPERATION EVENT{0,-15}", string.Empty);
-                Console.WriteLine(
-                    "{0,-2}{1,-9} {0,-2} | {0,-5}{2,-6:0.##} {0,-4} | {0,-5}{3,-6:0.##} {0,-5} | {0,-7}{4,-6} {0,-7} | {0,-2}{5,-10} {0,-2}",
-                    string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation,
-                    plane.LastUpdated.TimeOfDay.ToString());
+                _output.Print(String.Format(
+                    "{0,-2}{1,-9} {0,-2} | {0,-5}{2,-6:0.##} {0,-4} | {0,-5}{3,-6:0.##} {0,-5} | {0,-7}{4,-7} {0,-6} | {0,-2}{5,-10} {0,-2}",
+                    string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation ? "WARNING" : "  ---  ",
+                    plane.LastUpdated.TimeOfDay.ToString()));
             }
 
-            Console.Write("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
         }
 
         internal void UpdatePlane(Plane planeToUpdate, int xCoord, int yCoord, int altitude, DateTime time)
@@ -94,7 +94,7 @@ namespace TransponderLib
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                _output.Print(e.Message);
                 return;
             }
 
