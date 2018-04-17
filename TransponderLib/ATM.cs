@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using TransponderReceiver;
 
 [assembly: InternalsVisibleTo("TestUnit")]
+[assembly: InternalsVisibleTo("ATM.Test.Integration")]
 
 namespace TransponderLib
 {
@@ -15,8 +17,7 @@ namespace TransponderLib
         private IOutput _output;
         private ICollisionDetector _detector;
 
-
-        private List<Plane> _planes = new List<Plane>();
+        internal List<Plane> _planes = new List<Plane>();
 
         public ATM(ITransponderReceiver receiver, ITransponderDataParser parser, IOutput output, ICollisionDetector detector)
         {
@@ -58,6 +59,8 @@ namespace TransponderLib
                     "{0,-2}{1,-9} {0,-2} | {0,-5}{2,-6:0.##} {0,-4} | {0,-5}{3,-6:0.##} {0,-5} | {0,-7}{4,-7} {0,-6} | {0,-2}{5,-10} {0,-2}",
                     string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation ? "WARNING" : "  ---  ",
                     plane.LastUpdated.TimeOfDay.ToString()));
+
+                //_output.Print(String.Format("X: {0}   --   Y: {1}   --   ALT: {2}", plane.XCoord.ToString(), plane.YCoord.ToString(), plane.Altitude.ToString()));
             }
 
         }
@@ -102,20 +105,23 @@ namespace TransponderLib
             }
 
             // Checking if inside appropriate airspace
-            if ((xCoord > 90000 || xCoord < 10000 || yCoord > 90000 || yCoord < 10000) &&
+            if (((xCoord <= 90000 & xCoord >= 10000) && (yCoord <= 90000 & yCoord >= 10000)) &&
                 _planes.Exists(s => s.Tag == tag))
-                _planes.Remove(_planes.Find(p => p.Tag == tag)); // Remove existing plane, since out of airspace
-
-            else if (xCoord > 90000 || xCoord < 10000 || yCoord > 90000 || yCoord < 10000)
-                return; // Do not add plane
-
-
-            // Update plane if it exists, otherwise add the plane.
-            if (_planes.Exists(s => s.Tag == tag))
                 UpdatePlane(_planes.Find(p => p.Tag == tag), xCoord, yCoord, altitude, time);
-            else
+
+            else if ((xCoord <= 90000 & xCoord >= 10000) && (yCoord <= 90000 & yCoord >= 10000))
                 _planes.Add(new Plane()
-                { Tag = tag, XCoord = xCoord, YCoord = yCoord, Altitude = altitude, LastUpdated = time, Course = 0, Speed = 0 });
+                {
+                    Tag = tag,
+                    XCoord = xCoord,
+                    YCoord = yCoord,
+                    Altitude = altitude,
+                    LastUpdated = time,
+                    Course = 0,
+                    Speed = 0
+                });
+            else
+                _planes.Remove(_planes.Find(s => s.Tag == tag));
         }
         internal void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs rawTransponderDataEventArgs)
         {
