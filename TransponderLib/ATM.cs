@@ -28,7 +28,7 @@ namespace TransponderLib
             _receiver = receiver;
             _receiver.TransponderDataReady += ReceiverOnTransponderDataReady;
             _output = output;
-
+                
             UpdateScreen();
         }
 
@@ -59,8 +59,6 @@ namespace TransponderLib
                     "{0,-2}{1,-9} {0,-2} | {0,-5}{2,-6:0.##} {0,-4} | {0,-5}{3,-6:0.##} {0,-5} | {0,-7}{4,-7} {0,-6} | {0,-2}{5,-10} {0,-2}",
                     string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation ? "WARNING" : "  ---  ",
                     plane.LastUpdated.TimeOfDay.ToString()));
-
-                //_output.Print(String.Format("X: {0}   --   Y: {1}   --   ALT: {2}", plane.XCoord.ToString(), plane.YCoord.ToString(), plane.Altitude.ToString()));
             }
 
         }
