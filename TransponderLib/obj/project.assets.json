@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\SWT_Handin3\\TransponderLib\\TransponderLib.csproj",
+      "projectUniqueName": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\swt_atm\\TransponderLib\\TransponderLib.csproj",
       "projectName": "TransponderLib",
-      "projectPath": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\SWT_Handin3\\TransponderLib\\TransponderLib.csproj",
+      "projectPath": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\swt_atm\\TransponderLib\\TransponderLib.csproj",
       "packagesPath": "C:\\Users\\sv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\SWT_Handin3\\TransponderLib\\obj\\",
+      "outputPath": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\swt_atm\\TransponderLib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
