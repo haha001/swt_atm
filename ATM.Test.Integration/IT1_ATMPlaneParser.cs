@@ -11,7 +11,7 @@ using NSubstitute;
 using NSubstitute.Extensions;
 using ATM = TransponderLib.ATM;
 
-namespace ATM.Test.Integration
+namespace Test.Integration
 {
 	[TestFixture]
 	public class IT1_ATMPlaneParser
