@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransponderLib\TransponderLib.csproj">
-      <Project>{48763ee9-20b4-493b-af46-0fccf46182fa}</Project>
+      <Project>{baa7c3a7-390d-4039-9cfa-4d1fe58e2fb2}</Project>
       <Name>TransponderLib</Name>
     </ProjectReference>
   </ItemGroup>
