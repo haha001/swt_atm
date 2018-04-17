@@ -76,19 +76,5 @@ namespace TestUnit
             
             Assert.DoesNotThrow(() => _atm.HandleData("A4;29045;129321500020151006213456900"));
         }
-
-        [Test]
-		[Ignore ("Not done")]
-        public void wat()
-        {
-            _atm._planes[0].Course = 33.3;
-            _atm._planes[0].Speed = 200.42;
-
-            var date = DateTime.Parse("2018-11-22 01:13:37.323");
-
-            _atm.UpdatePlane(_atm._planes[0], 23800, 21000, 11500, date);
-
-            Assert.That(_atm._planes[0].XCoord, Is.EqualTo(23800));
-        }
     }
 }
