@@ -214,3 +214,6 @@ C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\obj\Debug\ATM.csproj.Co
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\obj\Debug\ATM.csproj.CopyComplete
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\obj\Debug\ATM.exe
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\obj\Debug\ATM.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\bin\Debug\nunit.framework.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\bin\Debug\nunit.framework.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM\bin\Debug\nunit.framework.xml
