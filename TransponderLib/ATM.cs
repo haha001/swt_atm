@@ -60,7 +60,7 @@ namespace TransponderLib
                     string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation ? "WARNING" : "  ---  ",
                     plane.LastUpdated.TimeOfDay.ToString()));
 
-                _output.Print(String.Format("X: {0}   --   Y: {1}   --   ALT: {2}", plane.XCoord.ToString(), plane.YCoord.ToString(), plane.Altitude.ToString()));
+                //_output.Print(String.Format("X: {0}   --   Y: {1}   --   ALT: {2}", plane.XCoord.ToString(), plane.YCoord.ToString(), plane.Altitude.ToString()));
             }
 
         }
