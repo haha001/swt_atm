@@ -15,14 +15,13 @@ namespace TestUnit
     class UT_ATM
     {
         private ATM _atm;
-        private Plane _plane1;
-        private Plane _plane2;
 
         private ITransponderReceiver _receiver;
         private ITransponderDataParser _dataParser;
         private IOutput _output;
         private ICollisionDetector _detector;
-        private CollisionEventArgs _collisionEventArgs;
+        //private CollisionEventArgs _collisionEventArgs;
+        //private RawTransponderDataEventArgs _eventArgs;
 
         [SetUp]
         public void SetUp()
@@ -32,19 +31,31 @@ namespace TestUnit
             _output = Substitute.For<IOutput>();
             _detector = Substitute.For<ICollisionDetector>();
 
-            _plane1 = new Plane() { Tag = "A3", XCoord = 39045, YCoord = 12932, Altitude = 14000, LastUpdated = _dataParser.ParseTime("20151006213456789") };
-            _plane2 = new Plane() { Tag = "A4", XCoord = 29045, YCoord = 13932, Altitude = 15000, LastUpdated = _dataParser.ParseTime("20151006213456789") };
-
             _atm = new ATM(_receiver, _dataParser, _output, _detector);
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(), 
+                new RawTransponderDataEventArgs(new List<string>() { "A3;39045;12932;14000;20151006213456789" ,
+                    "A4;29045;12932;15000;20151006213456789", "A5;29050;12940;15000;20151006213456789" }));
         }
 
         [Test]
-        public void DetectorOnNoSeperationEvent_ExpectedResult_True()
+        public void DetectorOnNoSeperationEvent_ExpectedResult_False()
         {
-
-            
+            _detector.NoSeperationEvent += Raise.EventWith(_detector, new CollisionEventArgs(_atm._planes[0], _atm._planes[1]));
+            Assert.That(!_atm._planes[0].Separation && !_atm._planes[1].Separation);
         }
 
+        //[Test]
+        //public void DetectorOnNoSeperationEvent_ExpectedResult_True()
+        //{
+        //    _detector.NoSeperationEvent += Raise.EventWith(_detector, new CollisionEventArgs(_atm._planes[1], _atm._planes[2]));
+        //    Assert.That(_atm._planes[1].Separation && _atm._planes[2].Separation);
+        //}
+
+        //public void DetectorOnSeparationEvent_ExpectedResult_True()
+        //{
+
+        //}
         // 
 
         [Test]
