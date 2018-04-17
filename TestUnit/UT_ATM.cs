@@ -62,6 +62,15 @@ namespace TestUnit
         }
 
         [Test]
+        public void HandleData_PlaneInsideAirspace_ExpectedResult_True()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+            new RawTransponderDataEventArgs(new List<string>() { "A3;30000;12932;14000;20151006213456900" ,
+                "A4;29045;12932;15000;20151006213456900"}));
+            Assert.That(_atm._planes.Exists(p => p.Tag == "A3"), Is.True);
+        }
+
+        [Test]
 		[Ignore ("Not done")]
         public void wat()
         {
