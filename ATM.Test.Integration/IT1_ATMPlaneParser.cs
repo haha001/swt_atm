@@ -47,6 +47,45 @@ namespace ATM.Test.Integration
 													 && plane.Altitude == 14000 && plane.LastUpdated == _parser.ParseTime("20151006213456789")));
 
 		}
+
+		[TestCase]
+		public void HandleData_IncorrectStringToDataParser_PlaneNotAddedToATM()
+		{
+			//Raise event with wrong data
+			_receiver.TransponderDataReady +=
+				Raise.EventWith(new object(), new RawTransponderDataEventArgs(new List<string>() {"23;23;23;23"}));
+
+			//Make sure plane 
+			Assert.That(_atm._planes.Count == 0);
+
+		}
+
+		[TestCase]
+		public void HandleData_TwoSameStringsGiven_PlaneAddedOnceToATMWithoutModification()
+		{
+			_receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs); //Insert values equal to _plane1 into 
+			_receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs); //Insert values equal to _plane1 into 
+
+			//Make sure plane is only added once
+			Assert.That(_atm._planes.Count == 1 && (_atm._planes.Exists(plane => plane.Tag == "A3" && plane.XCoord == 39045 && plane.YCoord == 12932
+			                                                                     && plane.Altitude == 14000 && plane.LastUpdated == _parser.ParseTime("20151006213456789"))));
+		}
+
+		[TestCase]
+		public void UpdatePlane_SamePlaneUpdated_PlaneInATMUpdated()
+		{
+			_receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs); //Insert values equal to _plane1 into 
+			_receiver.TransponderDataReady += Raise.EventWith(new object(), new RawTransponderDataEventArgs(new List<string>()
+			{
+				"A3;10001;10023;5000;20151006213456789"
+			}));  
+
+			Console.Write(_atm._planes.Count);
+
+			//Make sure plane is only added once
+			Assert.That(_atm._planes.Count == 1 && (_atm._planes.Exists(plane => plane.Tag == "A3" && plane.XCoord == 10001 && plane.YCoord == 10023
+																				 && plane.Altitude == 5000 && plane.LastUpdated == _parser.ParseTime("20151006213456789"))));
+		}
 	}
 
 
