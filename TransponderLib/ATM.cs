@@ -15,12 +15,7 @@ namespace TransponderLib
         private IOutput _output;
         private ICollisionDetector _detector;
 
-
-<<<<<<< HEAD
         internal List<Plane> _planes = new List<Plane>();
-=======
-        public List<Plane> _planes = new List<Plane>();
->>>>>>> 783ac437a663fa641a16daf9e21b83ee56f2c4f8
 
         public ATM(ITransponderReceiver receiver, ITransponderDataParser parser, IOutput output, ICollisionDetector detector)
         {
