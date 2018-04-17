@@ -77,5 +77,21 @@ namespace TestUnit
             _uut.LastUpdated = dt;
             Assert.That(_uut.LastUpdated, Is.EqualTo(dt));
         }
+
+        [Test]
+        public void Attribute_Separation_ExpectedResult_True()
+        {
+            bool sep = true;
+            _uut.Separation = sep;
+            Assert.That(_uut.Separation, Is.EqualTo(sep));
+        }
+
+        [Test]
+        public void Attribute_SeparationTime_ExpectedResult_True()
+        {
+            DateTime dt = DateTime.Parse("2018-03-22 22:03:46.321");
+            _uut.SeparationTime = dt;
+            Assert.That(_uut.SeparationTime, Is.EqualTo(dt));
+        }
     }
 }
