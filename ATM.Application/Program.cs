@@ -13,8 +13,9 @@ namespace ATM_Application
 	{
 		static void Main(string[] args)
 		{
-			//ITransponderReceiver receiver = 
-			//ATM atm = new ATM(,new TransponderDataParser(), new ConsoleOutputter(), new CollisionDetector());
+
+			ATM atm = new ATM(TransponderReceiverFactory.CreateTransponderDataReceiver(),new TransponderDataParser(), new ConsoleOutputter(), new CollisionDetector());
+			Console.ReadLine();
 		}
 	}
 }

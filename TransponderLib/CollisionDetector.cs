@@ -40,11 +40,11 @@ namespace TransponderLib
 						if (distance < 5000)
 						{
 							//Verify that collision is not already added to list
-							if (Collisions.Contains(Tuple.Create(planes[i], planes[j])))
-								break;
-
-							Collisions.Add(Tuple.Create(planes[i], planes[j]));
-							SeparationEvent?.Invoke(this, new CollisionEventArgs(planes[i], planes[j]));
+							if (!Collisions.Contains(Tuple.Create(planes[i], planes[j])))
+							{
+								Collisions.Add(Tuple.Create(planes[i], planes[j]));
+								SeparationEvent?.Invoke(this, new CollisionEventArgs(planes[i], planes[j]));
+							}					
 						}
 					}
 				}
