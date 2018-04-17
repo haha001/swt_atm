@@ -38,7 +38,17 @@ namespace TestUnit
 			Assert.That(_planes.Exists(o => o.Tag == ea.CollidingPlane1.Tag) && _planes.Exists(o => o.Tag == ea.CollidingPlane2.Tag));
 		}
 
-		[TestCase]
+        [TestCase]
+        public void DetectCollision_UnderTwoFlights_Return()
+        {
+            CollisionEventArgs ea = new CollisionEventArgs(null, null);
+            _planes.Add(new Plane() { Altitude = 4000, Tag = "Hello", XCoord = 5000, YCoord = 5000, Speed = 1 });
+
+            Assert.That(_planes == null || _planes.Count < 2, Is.True);
+
+        }
+
+        [TestCase]
 		public void DetectCollision_TwoPlanesAltitudeDifference300_NoEventRaised()
 		{
 			bool collision = false;
