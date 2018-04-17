@@ -31,7 +31,7 @@ namespace ATM.Test.Integration
 			_eventArgs = new RawTransponderDataEventArgs(new List<string>(){ "A3;39045;12932;14000;20151006213456789" });
 			_parser = new TransponderDataParser();
 			_output = Substitute.For<IOutput>();
-			_plane1 = new Plane(){Tag = "A3", XCoord = 39045, YCoord = 23932, Altitude = 14000, LastUpdated = _parser.ParseTime("20151006213456789") };
+			_plane1 = new Plane(){Tag = "A3", XCoord = 39045, YCoord = 12932, Altitude = 14000, LastUpdated = _parser.ParseTime("20151006213456789") };
 			_detector = Substitute.For<ICollisionDetector>();
 			_atm = new TransponderLib.ATM(_receiver, _parser, _output, _detector);
 		}
@@ -42,11 +42,9 @@ namespace ATM.Test.Integration
 		{
 			_receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs); //Insert values equal to _plane1 into 
 
-
-			Console.WriteLine(_atm._planes[0].Tag + " " + _atm._planes[0].XCoord);
 			//Check that plane exists in list now
-			Assert.That(_atm._planes.Exists(plane => plane.Tag == "A3" && plane.XCoord == 39045 && plane.YCoord == 23932
-			                                         && plane.Altitude == 14000 && plane.LastUpdated == _parser.ParseTime("20151006213456789")));
+			Assert.That(_atm._planes.Exists(plane => plane.Tag == "A3" && plane.XCoord == 39045 && plane.YCoord == 12932
+													 && plane.Altitude == 14000 && plane.LastUpdated == _parser.ParseTime("20151006213456789")));
 
 		}
 	}
