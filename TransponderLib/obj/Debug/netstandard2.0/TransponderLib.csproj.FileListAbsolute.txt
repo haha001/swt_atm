@@ -28,3 +28,13 @@ D:\Programming\repos\semester4\SWT\simongit\swt_atm\TransponderLib\obj\Debug\net
 D:\Programming\repos\semester4\SWT\simongit\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.AssemblyInfo.cs
 D:\Programming\repos\semester4\SWT\simongit\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.dll
 D:\Programming\repos\semester4\SWT\simongit\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.pdb
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\bin\Debug\netstandard2.0\TransponderLib.deps.json
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\bin\Debug\netstandard2.0\TransponderLib.dll
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\bin\Debug\netstandard2.0\TransponderLib.pdb
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\bin\Debug\netstandard2.0\TransponderReceiver.dll
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.csprojResolveAssemblyReference.cache
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.csproj.CoreCompileInputs.cache
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.AssemblyInfoInputs.cache
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.AssemblyInfo.cs
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.dll
+C:\Users\Magnus\Source\Repos\ikt-sem4\swt_atm\TransponderLib\obj\Debug\netstandard2.0\TransponderLib.pdb
