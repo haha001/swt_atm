@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UT_ATM.cs" />
+    <Compile Include="UT_IOutput.cs" />
     <Compile Include="UT_Plane.cs" />
     <Compile Include="CollisionDetectorUnitTest.cs" />
     <Compile Include="UT_TransponderDataParser.cs" />
