@@ -226,3 +226,5 @@ C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\obj\Debug\TestUnit
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\obj\Debug\TestUnit.csproj.CopyComplete
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\obj\Debug\TestUnit.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\obj\Debug\TestUnit.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\Castle.Core.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\TestUnit\bin\Debug\Castle.Core.xml

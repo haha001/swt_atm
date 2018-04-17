@@ -4,8 +4,16 @@ using System.Text;
 
 namespace TransponderLib
 {
+	public interface ICollisionDetector
+	{
+		event EventHandler<CollisionEventArgs> SeparationEvent;
+		event EventHandler<CollisionEventArgs> NoSeperationEvent;
+		void DetectCollision(List<Plane> planes);
+		void VerifyCollisions();
+	}
+
 	//This class is used to detect whether or not any planes are colliding
-	public class CollisionDetector
+	public class CollisionDetector : ICollisionDetector
 	{
 		public event EventHandler<CollisionEventArgs> SeparationEvent;
 		public event EventHandler<CollisionEventArgs> NoSeperationEvent;
