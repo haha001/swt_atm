@@ -20,8 +20,6 @@ namespace TestUnit
         private ITransponderDataParser _dataParser;
         private IOutput _output;
         private ICollisionDetector _detector;
-        //private CollisionEventArgs _collisionEventArgs;
-        //private RawTransponderDataEventArgs _eventArgs;
 
         [SetUp]
         public void SetUp()
