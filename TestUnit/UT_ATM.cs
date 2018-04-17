@@ -23,7 +23,8 @@ namespace TestUnit
         }
 
         [Test]
-        public void test()
+		[Ignore ("Not done")]
+        public void wat()
         {
             plane.Tag = "ARF234";
             plane.XCoord = 23300;
