@@ -107,3 +107,8 @@ C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\De
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\TransponderLib.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\TransponderReceiver.dll
 C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\TransponderLib.pdb
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\NSubstitute.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\Castle.Core.dll
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\sv\CloudStation\Skole\Programmering\swt_atm\ATM.Test.Integration\bin\Debug\Castle.Core.xml
