@@ -15,8 +15,7 @@ namespace TransponderLib
         private IOutput _output;
         private ICollisionDetector _detector;
 
-
-        public List<Plane> _planes = new List<Plane>();
+        internal List<Plane> _planes = new List<Plane>();
 
         public ATM(ITransponderReceiver receiver, ITransponderDataParser parser, IOutput output, ICollisionDetector detector)
         {
@@ -104,20 +103,23 @@ namespace TransponderLib
             }
 
             // Checking if inside appropriate airspace
-            if ((xCoord > 90000 || xCoord < 10000 || yCoord > 90000 || yCoord < 10000) &&
+            if (((xCoord <= 90000 & xCoord >= 10000) && (yCoord <= 90000 & yCoord >= 10000)) &&
                 _planes.Exists(s => s.Tag == tag))
-                _planes.Remove(_planes.Find(p => p.Tag == tag)); // Remove existing plane, since out of airspace
-
-            else if (xCoord > 90000 || xCoord < 10000 || yCoord > 90000 || yCoord < 10000)
-                return; // Do not add plane
-
-
-            // Update plane if it exists, otherwise add the plane.
-            if (_planes.Exists(s => s.Tag == tag))
                 UpdatePlane(_planes.Find(p => p.Tag == tag), xCoord, yCoord, altitude, time);
-            else
+
+            else if ((xCoord <= 90000 & xCoord >= 10000) && (yCoord <= 90000 & yCoord >= 10000))
                 _planes.Add(new Plane()
-                { Tag = tag, XCoord = xCoord, YCoord = yCoord, Altitude = altitude, LastUpdated = time, Course = 0, Speed = 0 });
+                {
+                    Tag = tag,
+                    XCoord = xCoord,
+                    YCoord = yCoord,
+                    Altitude = altitude,
+                    LastUpdated = time,
+                    Course = 0,
+                    Speed = 0
+                });
+            else
+                _planes.Remove(_planes.Find(s => s.Tag == tag));
         }
         internal void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs rawTransponderDataEventArgs)
         {
