@@ -35,41 +35,37 @@ namespace TestUnit
 
             _receiver.TransponderDataReady += Raise.EventWith(new object(), 
                 new RawTransponderDataEventArgs(new List<string>() { "A3;39045;12932;14000;20151006213456789" ,
-                    "A4;29045;12932;15000;20151006213456789", "A5;29050;12940;15000;20151006213456789" }));
+                    "A4;29045;12932;15000;20151006213456789"}));
         }
 
         [Test]
-        public void DetectorOnNoSeperationEvent_ExpectedResult_False()
+        public void DetectorOnNoSeperationEvent_ExpectedResult_True()
         {
             _detector.NoSeperationEvent += Raise.EventWith(_detector, new CollisionEventArgs(_atm._planes[0], _atm._planes[1]));
             Assert.That(!_atm._planes[0].Separation && !_atm._planes[1].Separation);
         }
 
-        //[Test]
-        //public void DetectorOnNoSeperationEvent_ExpectedResult_True()
-        //{
-        //    _detector.NoSeperationEvent += Raise.EventWith(_detector, new CollisionEventArgs(_atm._planes[1], _atm._planes[2]));
-        //    Assert.That(_atm._planes[1].Separation && _atm._planes[2].Separation);
-        //}
+        [Test]
+        public void DetectorOnSeparationEvent_ExpectedResult_True()
+        {
+            _detector.SeparationEvent += Raise.EventWith(_detector, new CollisionEventArgs(_atm._planes[0], _atm._planes[1]));
+            Assert.That(_atm._planes[0].Separation && _atm._planes[1].Separation);
+        }
 
-        //public void DetectorOnSeparationEvent_ExpectedResult_True()
-        //{
 
-        //}
-        // 
 
         [Test]
 		[Ignore ("Not done")]
         public void wat()
         {
-            _plane1.Course = 33.3;
-            _plane1.Speed = 200.42;
+            _atm._planes[0].Course = 33.3;
+            _atm._planes[0].Speed = 200.42;
 
             var date = DateTime.Parse("2018-11-22 01:13:37.323");
 
-            _atm.UpdatePlane(_plane1, 23800, 21000, 11500, date);
+            _atm.UpdatePlane(_atm._planes[0], 23800, 21000, 11500, date);
 
-            Assert.That(_plane1.XCoord, Is.EqualTo(23800));
+            Assert.That(_atm._planes[0].XCoord, Is.EqualTo(23800));
         }
     }
 }
