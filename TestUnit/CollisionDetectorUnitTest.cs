@@ -44,6 +44,8 @@ namespace TestUnit
             CollisionEventArgs ea = new CollisionEventArgs(null, null);
             _planes.Add(new Plane() { Altitude = 4000, Tag = "Hello", XCoord = 5000, YCoord = 5000, Speed = 1 });
 
+
+            _collisionDetector.DetectCollision(_planes);
             Assert.That(_planes == null || _planes.Count < 2, Is.True);
 
         }
