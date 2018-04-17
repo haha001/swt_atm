@@ -31,10 +31,6 @@ namespace TransponderLib
 			{
 				for (int j = i + 1; j < planes.Count; ++j)
 				{
-					if (planes[j].Speed == 0)
-						break; //Break in case of new plane
-
-
 					int differenceInAltitude = planes[j].Altitude - planes[i].Altitude;
 					if (differenceInAltitude < 300 && differenceInAltitude > -300)
 					{
@@ -44,11 +40,11 @@ namespace TransponderLib
 						if (distance < 5000)
 						{
 							//Verify that collision is not already added to list
-							if (Collisions.Contains(Tuple.Create(planes[i], planes[j])))
-								break;
-
-							Collisions.Add(Tuple.Create(planes[i], planes[j]));
-							SeparationEvent?.Invoke(this, new CollisionEventArgs(planes[i], planes[j]));
+							if (!Collisions.Contains(Tuple.Create(planes[i], planes[j])))
+							{
+								Collisions.Add(Tuple.Create(planes[i], planes[j]));
+								SeparationEvent?.Invoke(this, new CollisionEventArgs(planes[i], planes[j]));
+							}					
 						}
 					}
 				}
