@@ -35,8 +35,7 @@ namespace TestUnit
 
 			_collisionDetector.DetectCollision(_planes);
 			
-			Assert.That(_planes.Exists(o => o.Tag == ea.CollidingPlane1.Tag));
-			Assert.That(_planes.Exists(o => o.Tag == ea.CollidingPlane2.Tag));
+			Assert.That(_planes.Exists(o => o.Tag == ea.CollidingPlane1.Tag) && _planes.Exists(o => o.Tag == ea.CollidingPlane2.Tag));
 		}
 
 		[TestCase]
