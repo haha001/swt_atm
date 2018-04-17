@@ -225,25 +225,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sv\\.nuget\\packages\\": {},
+    "C:\\Users\\au519051\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\swt_atm\\TransponderLib\\TransponderLib.csproj",
+      "projectUniqueName": "D:\\Programming\\repos\\semester4\\SWT\\simongit\\swt_atm\\TransponderLib\\TransponderLib.csproj",
       "projectName": "TransponderLib",
-      "projectPath": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\swt_atm\\TransponderLib\\TransponderLib.csproj",
-      "packagesPath": "C:\\Users\\sv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sv\\CloudStation\\Skole\\Programmering\\swt_atm\\TransponderLib\\obj\\",
+      "projectPath": "D:\\Programming\\repos\\semester4\\SWT\\simongit\\swt_atm\\TransponderLib\\TransponderLib.csproj",
+      "packagesPath": "C:\\Users\\au519051\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\repos\\semester4\\SWT\\simongit\\swt_atm\\TransponderLib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\au519051\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
