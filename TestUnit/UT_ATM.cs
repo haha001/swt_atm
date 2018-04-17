@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using ATM_ns;
 using TransponderLib;
+using TransponderReceiver;
 
 
 namespace TestUnit
@@ -18,8 +18,6 @@ namespace TestUnit
         [SetUp]
         public void SetUp()
         {
-            _uut = new ATM();
-            plane = new Plane();
         }
 
         [Test]

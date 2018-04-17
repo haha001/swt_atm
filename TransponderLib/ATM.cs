@@ -10,20 +10,20 @@ namespace TransponderLib
         private readonly ITransponderReceiver _receiver;
         private ITransponderDataParser _dataParser;
         private IOutput _output;
-        private CollisionDetector _detector;
+        private ICollisionDetector _detector;
 
 
         private List<Plane> _planes = new List<Plane>();
 
-        public ATM()
+        public ATM(ITransponderReceiver receiver, ITransponderDataParser parser, IOutput output, ICollisionDetector detector)
         {
-            _detector = new CollisionDetector();
+            _detector = detector;
             _detector.SeparationEvent += DetectorOnSeparationEvent;
             _detector.NoSeperationEvent += DetectorOnNoSeperationEvent;
-            _dataParser = new TransponderDataParser();
-            _receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
+            _dataParser = parser;
+            _receiver = receiver;
             _receiver.TransponderDataReady += ReceiverOnTransponderDataReady;
-            _output = new ConsoleOutputter();
+            _output = output;
 
             UpdateScreen();
         }
@@ -129,3 +129,4 @@ namespace TransponderLib
     }
 
 }
+

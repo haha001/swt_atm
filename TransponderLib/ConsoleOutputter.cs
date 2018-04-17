@@ -10,7 +10,7 @@ namespace TransponderLib
         void Reset();
     }
 
-    class ConsoleOutputter : IOutput
+    public class ConsoleOutputter : IOutput
     {
         public void Print(string str)
         {

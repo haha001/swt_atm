@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TransponderReceiver;
+using TransponderLib;
+
 
 namespace ATM.Test.Integration
 {
@@ -12,7 +14,14 @@ namespace ATM.Test.Integration
 	public class IT1_ATMPlaneParser
 	{
 		private ITransponderReceiver _receiver;
+		private TransponderLib.ATM _atm;
+		private Plane _plane1;
 
+		[SetUp]
+		public void SetUp()
+		{
+			_receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
+		}
 		[TestCase]
 		public void TryingToTest()
 		{
