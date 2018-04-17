@@ -56,9 +56,8 @@ namespace TransponderLib
             foreach (var plane in _planes)
             {
                 _output.Print(String.Format(
-                    "{0,-2}{1,-9} {0,-2} | {0,-5}{2,-6:0.##} {0,-4} | {0,-5}{3,-6:0.##} {0,-5} | {0,-7}{4,-7} {0,-6} | {0,-2}{5,-10} {0,-2}",
-                    string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation ? "WARNING" : "  ---  ",
-                    plane.LastUpdated.TimeOfDay.ToString()));
+                    "{0,-2}{1,-9} {0,-2} | {0,-5}{2,-6:0.##} {0,-4} | {0,-5}{3,-6:0.##} {0,-5} | {0,-7}{4,-7} {0,-6} | {0,-2}{5,-10:g} {0,-2}",
+                    string.Empty, plane.Tag, plane.Speed, plane.Course, plane.Separation ? "WARNING" : "  ---  ", plane.LastUpdated.TimeOfDay));
             }
 
         }
