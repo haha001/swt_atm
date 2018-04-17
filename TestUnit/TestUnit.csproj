@@ -70,10 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATM\ATM.csproj">
-      <Project>{7fa0efb9-735c-4ab0-9230-beb220da88c2}</Project>
-      <Name>ATM</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TransponderLib\TransponderLib.csproj">
       <Project>{48763ee9-20b4-493b-af46-0fccf46182fa}</Project>
       <Name>TransponderLib</Name>
