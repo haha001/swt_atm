@@ -31,20 +31,18 @@ namespace TransponderLib
 			{
 				for (int j = i + 1; j < planes.Count; ++j)
 				{
-					int differenceInAltitude = planes[j].Altitude - planes[i].Altitude;
+					var differenceInAltitude = planes[j].Altitude - planes[i].Altitude;
 					if (differenceInAltitude < 300 && differenceInAltitude > -300)
 					{
 						//Planes are within 300 meters in altitude, otherwise just ignore
-						double distance = CalculateDistance(planes[i], planes[j]);
+						var distance = CalculateDistance(planes[i], planes[j]);
 
-						if (distance < 5000)
+						//Verify that collision is not already added to list and that planes are within 5000 distance
+						if (distance < 5000 && (!Collisions.Contains(Tuple.Create(planes[i], planes[j]))))
 						{
-							//Verify that collision is not already added to list
-							if (!Collisions.Contains(Tuple.Create(planes[i], planes[j])))
-							{
 								Collisions.Add(Tuple.Create(planes[i], planes[j]));
 								SeparationEvent?.Invoke(this, new CollisionEventArgs(planes[i], planes[j]));
-							}					
+									
 						}
 					}
 				}
@@ -53,7 +51,7 @@ namespace TransponderLib
 
 		public void VerifyCollisions()
 		{
-			foreach (var collision in Collisions.ToArray())
+			foreach (var collision in Collisions.ToArray()) //Make List mutable
 			{
 				if (CalculateDistance(collision.Item1, collision.Item2) >= 5000)
 				{
