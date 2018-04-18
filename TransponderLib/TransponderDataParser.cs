@@ -23,7 +23,9 @@ namespace TransponderLib
             out int altitude,
             out DateTime time)
         {
-            string[] strings = inputString?.Split(';');
+            if (inputString == null) throw new NullReferenceException("Den skal ikke være null, din skovl");
+
+            string[] strings = inputString.Split(';');
 
             if (strings.Length != 5) throw new ArgumentException("Wrong input");
 

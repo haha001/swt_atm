@@ -102,11 +102,10 @@ namespace TransponderLib
             }
 
             // Checking if inside appropriate airspace
-            if (((xCoord <= 90000 & xCoord >= 10000) && (yCoord <= 90000 & yCoord >= 10000)) &&
-                _planes.Exists(s => s.Tag == tag))
+            if (CheckAirspace(xCoord, yCoord) && _planes.Exists(s => s.Tag == tag))
                 UpdatePlane(_planes.Find(p => p.Tag == tag), xCoord, yCoord, altitude, time);
 
-            else if ((xCoord <= 90000 & xCoord >= 10000) && (yCoord <= 90000 & yCoord >= 10000))
+            else if (CheckAirspace(xCoord, yCoord))
                 _planes.Add(new Plane()
                 {
                     Tag = tag,
@@ -120,6 +119,12 @@ namespace TransponderLib
             else
                 _planes.Remove(_planes.Find(s => s.Tag == tag));
         }
+
+        internal bool CheckAirspace(int xCoord, int yCoord)
+        {
+            return xCoord <= 90000 & xCoord >= 10000 && yCoord <= 90000 & yCoord >= 10000;
+        }
+
         internal void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs rawTransponderDataEventArgs)
         {
             foreach (var data in rawTransponderDataEventArgs.TransponderData)
