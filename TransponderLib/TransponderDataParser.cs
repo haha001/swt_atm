@@ -13,10 +13,8 @@ namespace TransponderLib
 
     public class TransponderDataParser : ITransponderDataParser
     {
-        public DateTime ParseTime(string time)
-        {
-            return DateTime.ParseExact(time, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
-        }
+        public DateTime ParseTime(string time) => DateTime.ParseExact(time, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
+
 
         public void ParseData(string inputString, 
             out string tag, 
@@ -25,7 +23,7 @@ namespace TransponderLib
             out int altitude,
             out DateTime time)
         {
-            string[] strings = inputString.Split(';');
+            string[] strings = inputString?.Split(';');
 
             if (strings.Length != 5) throw new ArgumentException("Wrong input");
 
