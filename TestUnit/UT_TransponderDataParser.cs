@@ -34,7 +34,7 @@ namespace TestUnit
         [TestCase("00000000000000000", TestName = "AllZeroes")]
         public void ParseTime_NoneligibleInput_ExpectedResult_Exception(string time)
         {
-            Assert.That(() => _uut.ParseTime(time),Throws.Exception.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => _uut.ParseTime(time),Throws.Exception.TypeOf<FormatException>());
         }
 
         [TestCase("abc11111111111111", TestName = "Letters as input")]
