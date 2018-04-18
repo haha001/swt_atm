@@ -59,7 +59,7 @@ namespace TransponderLib
 			}
 		}
 
-		private double CalculateDistance(Plane plane1, Plane plane2)
+		private static double CalculateDistance(Plane plane1, Plane plane2)
 		{
 			//Calculate euclidian distance
 			double xDifference = plane2.XCoord - plane1.XCoord;
