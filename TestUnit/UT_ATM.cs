@@ -91,20 +91,21 @@ namespace TestUnit
         }
 
         [Test]
-        public void TransponderDataReady_Input_WrongTimeDirection_ExpectedResult_3planes()
+        public void TransponderDataReady_Input_WrongTimeDirection_ExpectedResult_NotUpdated()
         {
             _receiver.TransponderDataReady += Raise.EventWith(new object(),
                 new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" ,
-                    "A2;29045;12932;15000;20151006213456789"}));
+                    "A2;29045;12932;15000;20151006213456555"}));
 
             _receiver.TransponderDataReady += Raise.EventWith(new object(),
                 new RawTransponderDataEventArgs(new List<string>() { "A1; 40000; 13000; 14000; 20151006213459999" ,
                     "A2;30000;13000;15000;20141006213459999"}));
 
-            Assert.That(_atm._planes.Count, Is.EqualTo(3));
+            Assert.That(_atm._planes[3].LastUpdated.Millisecond, Is.EqualTo(555));
         }
 
         [Test]
+        [Ignore("Planes can't crash in this application :)")]
         public void TransponderDataReady_Input_DirectlyDown_ExpectedResult_PlaneCrash_ItDidnt()
         {
             _receiver.TransponderDataReady += Raise.EventWith(new object(),

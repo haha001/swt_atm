@@ -64,6 +64,10 @@ namespace TransponderLib
 
         internal void UpdatePlane(Plane planeToUpdate, int xCoord, int yCoord, int altitude, DateTime time)
         {
+            // Checking if new time is a valid time. Here it must be later than LastUpdated
+            if (DateTime.Compare(time, planeToUpdate.LastUpdated) <= 0) return;
+
+
             int deltaXCoord = Math.Abs(xCoord - planeToUpdate.XCoord);
             int deltaYCoord = Math.Abs(yCoord - planeToUpdate.YCoord);
 
