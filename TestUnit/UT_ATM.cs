@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 using TransponderLib;
 using TransponderReceiver;
@@ -36,6 +37,13 @@ namespace TestUnit
                     "A4;29045;12932;15000;20151006213456789"}));
         }
 
+        [Test]
+        public void wat()
+        {
+            Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() {null})));
+        }
+      
         [Test]
         public void DetectorOnNoSeperationEvent_ExpectedResult_True()
         {

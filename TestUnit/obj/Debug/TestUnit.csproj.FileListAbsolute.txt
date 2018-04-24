@@ -158,3 +158,17 @@ D:\swt_atm\TestUnit\obj\Debug\TestUnit.csproj.CoreCompileInputs.cache
 D:\swt_atm\TestUnit\obj\Debug\TestUnit.csproj.CopyComplete
 D:\swt_atm\TestUnit\obj\Debug\TestUnit.dll
 D:\swt_atm\TestUnit\obj\Debug\TestUnit.pdb
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\TestUnit.dll
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\TestUnit.pdb
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\Castle.Core.dll
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\TransponderLib.dll
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\TransponderReceiver.dll
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\TransponderLib.pdb
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\Castle.Core.xml
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\nunit.framework.pdb
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\nunit.framework.xml
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\obj\Debug\TestUnit.csprojResolveAssemblyReference.cache
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\obj\Debug\TestUnit.csproj.CoreCompileInputs.cache
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\obj\Debug\TestUnit.dll
+D:\Programming\repos\semester4\SWT\gitHandin3\swt_atm\TestUnit\obj\Debug\TestUnit.pdb
