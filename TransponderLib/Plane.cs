@@ -13,11 +13,7 @@ namespace TransponderLib
         public int Altitude
         {
             get => this._altitude;
-            set
-            {
-                if (value >= 0) this._altitude = value;
-                else this._altitude = 0;
-            }
+            set => _altitude = value >= 0 ? value : 0;
         }
 
         public double Speed { get; set; }
@@ -29,7 +25,7 @@ namespace TransponderLib
 
         public Plane()
         {
-
+            // uwotm8
         }
     }
 }

@@ -23,7 +23,7 @@ namespace TransponderLib
             out int altitude,
             out DateTime time)
         {
-            if (inputString == null) throw new NullReferenceException("Den skal ikke være null, din skovl");
+            //if (inputString == null) throw new NullReferenceException("Den skal ikke være null, din skovl");
 
             inputString = inputString.Replace(" ", string.Empty);
 

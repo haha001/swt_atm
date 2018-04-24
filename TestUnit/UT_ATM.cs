@@ -65,7 +65,7 @@ namespace TestUnit
         }
 
         [Test]
-        public void wat()
+        public void TransponderDataReady_Input_StringWithSpaces_ExpectedResult_4planes()
         {
             _receiver.TransponderDataReady += Raise.EventWith(new object(),
                 new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" ,
@@ -76,6 +76,92 @@ namespace TestUnit
                     "A2;30000;13000;15000;20151006213459999"}));
 
             Assert.That(_atm._planes.Count, Is.EqualTo(4));
+        }
+
+        [TestCase("A1; 10000; 90000; 14000; 20151006213456789", "A2;90000;10000;15000;20151006213456789", 4, TestName = "Input_RightAirspace_ExpectedResult_4")]
+        [TestCase("A1; 1000; 90000; 14000; 20151006213456789", "A2;90000;10000;15000;20151006213456789", 3, TestName = "Input_WrongAirspace_ExpectedResult_3")]
+        [TestCase("A1; 10000; 91000; 14000; 20151006213456789", "A2;90000;10000;15000;20151006213456789", 3, TestName = "Input_WrongAirspace_ExpectedResult_4")]
+        public void TransponderDataReady_CheckAirSpace(string a1, string a2, int expectedResult)
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() {a1, a2}));
+            
+            Assert.That(_atm._planes.Count, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void TransponderDataReady_Input_WrongTimeDirection_ExpectedResult_3planes()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" ,
+                    "A2;29045;12932;15000;20151006213456789"}));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 40000; 13000; 14000; 20151006213459999" ,
+                    "A2;30000;13000;15000;20141006213459999"}));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void TransponderDataReady_Input_DirectlyDown_ExpectedResult_PlaneCrash_ItDidnt()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789"}));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 10000; 20151006213456789" }));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 5000; 20151006213456789" }));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 0; 20151006213456789" }));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void TransponderDataReady_Input_0Height_ExpectedResult_3Planes()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 0; 20151006213456789" }));
+        }
+
+        [Test]
+        public void TransponderDataReady_UpdatePlane_Input_PlaneMovingOutAndIntoAirspace_ExpectedResult_3planes()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" }));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 139045; 112932; 14000; 20151006213456789" }));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" }));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void TransponderDataReady_UpdatePlane_Input_OnlyDate_ExpectedResult_2PlanesCauseFaultyData()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006" }));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void TransponderDataReady_UpdatePlane_Input_CorrectDataAndOnlyDate_ExpectedResult_3planes()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" }));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006" }));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(3));
         }
 
         [Test]
@@ -93,7 +179,7 @@ namespace TestUnit
         }
 
         [Test]
-        public void HandleData_PlaneOutsideAirspace_ExpectedResult_True()
+        public void HandleData_PlaneOutsideAirspace_ExpectedResult_False()
         {
             _receiver.TransponderDataReady += Raise.EventWith(new object(), 
             new RawTransponderDataEventArgs(new List<string>() { "A3;100000;12932;14000;20151006213456900" ,
