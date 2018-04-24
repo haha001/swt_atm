@@ -47,8 +47,10 @@ namespace TestUnit
         [Test]
         public void wat2()
         {
-            Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
-                new RawTransponderDataEventArgs(new List<string>() { null , ""})));
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() {null, ""}));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(2));
         }
 
         [Test]
