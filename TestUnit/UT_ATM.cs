@@ -38,14 +38,16 @@ namespace TestUnit
         }
 
         [Test]
-        public void wat()
+        public void TransponderDataReady_Input_Null_ExpectedResult_2planes()
         {
-            Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
-                new RawTransponderDataEventArgs(new List<string>() {null})));
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() {null}));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(2));
         }
 
         [Test]
-        public void wat2()
+        public void TransponderDataReady_Input_NullAndEmptyString_ExpectedResult_2planes()
         {
             _receiver.TransponderDataReady += Raise.EventWith(new object(),
                 new RawTransponderDataEventArgs(new List<string>() {null, ""}));
@@ -54,10 +56,26 @@ namespace TestUnit
         }
 
         [Test]
-        public void wat3()
+        public void TransponderDataReady_Input_WrongFormatString_ExpectedResult_2planes()
         {
-            Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
-                new RawTransponderDataEventArgs(new List<string>() { "uwotm8" })));
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() {"uwotm8"}));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void wat()
+        {
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 39045; 12932; 14000; 20151006213456789" ,
+                    "A2;29045;12932;15000;20151006213456789"}));
+
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "A1; 40000; 13000; 14000; 20151006213459999" ,
+                    "A2;30000;13000;15000;20151006213459999"}));
+
+            Assert.That(_atm._planes.Count, Is.EqualTo(4));
         }
 
         [Test]
