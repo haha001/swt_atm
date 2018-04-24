@@ -32,7 +32,7 @@ namespace TestUnit
 
             _atm = new ATM(_receiver, _dataParser, _output, _detector);
 
-            _receiver.TransponderDataReady += Raise.EventWith(new object(), 
+            _receiver.TransponderDataReady += Raise.EventWith(new object(),
                 new RawTransponderDataEventArgs(new List<string>() { "A3;39045;12932;14000;20151006213456789" ,
                     "A4;29045;12932;15000;20151006213456789"}));
         }
@@ -43,7 +43,21 @@ namespace TestUnit
             Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
                 new RawTransponderDataEventArgs(new List<string>() {null})));
         }
-      
+
+        [Test]
+        public void wat2()
+        {
+            Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { null , ""})));
+        }
+
+        [Test]
+        public void wat3()
+        {
+            Assert.Throws<NullReferenceException>(() => _receiver.TransponderDataReady += Raise.EventWith(new object(),
+                new RawTransponderDataEventArgs(new List<string>() { "uwotm8" })));
+        }
+
         [Test]
         public void DetectorOnNoSeperationEvent_ExpectedResult_True()
         {
