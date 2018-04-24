@@ -22,8 +22,8 @@ namespace TransponderLib
 		public void DetectCollision(List<Plane> planes)
 		{
 			//We don't want to deal with empty lists
-			if (planes == null)
-				return;
+			if (planes == null || planes.Count <= 0)
+				throw new NullReferenceException("Don't want no empty lists here");
 			//Check if any new collisions have occured (The dreaded n^2 loop)
 			for (var i = 0; i < planes.Count - 1; ++i)
 			{

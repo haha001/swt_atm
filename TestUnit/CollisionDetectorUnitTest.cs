@@ -20,7 +20,13 @@ namespace TestUnit
 			_collisionDetector = new CollisionDetector();
 		}
 
-		[TestCase]
+	    [Test]
+	    public void CollisionDetector_Input_EmptyList_ExpectedResult_NullReferenceException()
+	    {
+	        Assert.Throws<NullReferenceException>(() => _collisionDetector.DetectCollision(_planes));
+	    }
+
+        [TestCase]
 		public void CollisionEventArgs_TwoPlanesColliding_PlanesReturnedInEventhandler()
 		{
 			CollisionEventArgs ea = new CollisionEventArgs(null, null);

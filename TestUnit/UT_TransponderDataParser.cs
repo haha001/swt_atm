@@ -44,6 +44,19 @@ namespace TestUnit
         }
 
         [Test]
+        public void ParseData_InputStringNull_ExpectedResult_ExceptionThrown()
+        {
+            string data = null;
+
+            Assert.That(() => _uut.ParseData(data,
+                out string tag,
+                out int xCoord,
+                out int yCoord,
+                out int altitude,
+                out DateTime time), Throws.Exception.TypeOf<NullReferenceException>());
+        }
+
+        [Test]
         public void ParseData_MissingData_ExpectedResult_Exception()
         {
             string data = "A3";

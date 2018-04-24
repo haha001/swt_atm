@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using TransponderLib;
 using TransponderReceiver;
 
