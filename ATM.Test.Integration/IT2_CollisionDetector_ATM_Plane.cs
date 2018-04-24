@@ -103,7 +103,7 @@ namespace Test.Integration
         {
             RawTransponderDataEventArgs _eventArgs_4 = 
                 new RawTransponderDataEventArgs(new List<string>()
-                { "A1;30045;12933;14003;20151006213456789" });
+                { "A1;30045;12933;14003;20151006213457789" });
 
             bool raised = false;
 
@@ -126,7 +126,7 @@ namespace Test.Integration
         {
             RawTransponderDataEventArgs _eventArgs_4 =
                 new RawTransponderDataEventArgs(new List<string>()
-                    { "A1;30045;12933;14003;20151006213456789" });
+                    { "A1;30045;12933;14003;20151006213457789" });
 
             bool raised = false;
 
@@ -152,10 +152,10 @@ namespace Test.Integration
 
             RawTransponderDataEventArgs _eventArgs_4 =
                 new RawTransponderDataEventArgs(new List<string>()
-                    { "A1;39045;12933;14003;20151006213456789" });
+                    { "A1;39045;12933;14003;20151006213456799" });
             RawTransponderDataEventArgs _eventArgs_5 =
                 new RawTransponderDataEventArgs(new List<string>()
-                    { "A2;39045;12932;14003;20151006213456789" });
+                    { "A2;39045;12932;14003;20151006213456799" });
 
             _collisionDetector.SeparationEvent += (sender, args) => raised = !true;
 

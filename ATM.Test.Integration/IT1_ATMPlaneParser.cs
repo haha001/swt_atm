@@ -77,14 +77,14 @@ namespace Test.Integration
 			_receiver.TransponderDataReady += Raise.EventWith(new object(), _eventArgs); //Insert values equal to _plane1 into 
 			_receiver.TransponderDataReady += Raise.EventWith(new object(), new RawTransponderDataEventArgs(new List<string>()
 			{
-				"A3;10001;10023;5000;20151006213456789"
+				"A3;10001;10023;5000;20151006213457789"
 			}));  
 
 			Console.Write(_atm._planes.Count);
 
 			//Make sure plane is only added once
 			Assert.That(_atm._planes.Count == 1 && (_atm._planes.Exists(plane => plane.Tag == "A3" && plane.XCoord == 10001 && plane.YCoord == 10023
-																				 && plane.Altitude == 5000 && plane.LastUpdated == _parser.ParseTime("20151006213456789"))));
+																				 && plane.Altitude == 5000 && plane.LastUpdated == _parser.ParseTime("20151006213457789"))));
 		}
 	}
 
