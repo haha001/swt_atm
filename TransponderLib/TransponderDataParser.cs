@@ -25,6 +25,8 @@ namespace TransponderLib
         {
             if (inputString == null) throw new NullReferenceException("Den skal ikke være null, din skovl");
 
+            inputString = inputString.Replace(" ", string.Empty);
+
             string[] strings = inputString.Split(';');
 
             if (strings.Length != 5) throw new ArgumentException("Wrong input");
